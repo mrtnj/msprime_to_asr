@@ -26,10 +26,12 @@ for chr_ix in range(len(genome_table)):
   haplo = np.load(founder_base_path + "/" + genome_table["chr"][chr_ix] + ".npy")
   map = pd.read_csv(founder_base_path + "/" + genome_table["chr"][chr_ix] + "_pos.txt", index_col = 0)
   ## randomly sample
-  to_take = genome_table["seg_sites"][chr_ix].astype(int)
-  pick = sorted(random.sample(range(0, len(map)), to_take))
-  haplo_pick = haplo[:, pick]
-  map_pick = map.iloc[pick, :]
+  to_take_sites = genome_table["seg_sites"][chr_ix].astype(int)
+  pick_sites = sorted(random.sample(range(0, len(map)), to_take_sites))
+  pick_animals = sorted(random.sample(range(0, haplo.shape[0]), n_ind))
+  haplo_pick = haplo[:, pick_sites]
+  haplo_pick = haplo_pick[pick_animals, ]
+  map_pick = map.iloc[pick_sites, :]
   ## write matrix and map
   map_pick.to_csv(out_path + genome_table.chr[chr_ix] + "_pos.txt")
   np.savetxt(

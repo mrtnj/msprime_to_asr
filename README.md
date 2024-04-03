@@ -35,7 +35,7 @@ python python/simulate_founders.py \
        simulations/founders_full/
 ```
 
-Sample 100 founders and 50,000 variants from that:
+Sample 100 founder haplotypes and 50,000 variants from that:
 
 ```
 mkdir -p simulations/founders1
