@@ -22,7 +22,7 @@ R: `AlphaSimR`, `readr`, `purrr`
 
 ## Use
 
-Simulate founder population for 1000 cattle:
+Simulate founder population for 1000 cattle with the 200 last generations as Wright--Fisher simulation:
 
 ```
 mkdir -p simulations/founders_full
