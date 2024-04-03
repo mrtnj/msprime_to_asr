@@ -50,6 +50,7 @@ for chr_ix in range(len(genome_table)):
     rate = 1e-8
   )
   geno = ts_mutated.genotype_matrix()
+  geno = geno.astype("ubyte")
   multiallele_filter = np.any(geno == 2, axis = 1)
   geno_filtered = geno[~multiallele_filter]
   map = pd.DataFrame(ts_mutated.sites_position, columns = ["bp"])
